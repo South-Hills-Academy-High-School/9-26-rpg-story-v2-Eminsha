@@ -49,6 +49,7 @@ function imSorry () {
     ImSorry3 = createScript("Pineapple", "No Problem", 4)
     blockObject.setAnyProperty(ImSorry1, AnyProp.NextPage, ImSorry2)
     blockObject.setAnyProperty(ImSorry2, AnyProp.NextPage, ImSorry3)
+    blockObject.setAnyProperty(ImSorry3, AnyProp.NextPage, finalChoice())
     return ImSorry1
 }
 // microsoft/arcade-block-objects
@@ -102,10 +103,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function finalChoice () {
-    FinalChoice1 = createScript("Old Man", "Well, I just need enough water for this garden here", 0)
-    FinalChoice2 = createScript("Cloud", "I can make that happen! What's the magic word?", 0)
+    FinalChoice1 = createScript("Mr. Kao", "Well, I just need enough water for you", 0)
+    FinalChoice2 = createScript("Pinapple", "I can make that happen! What's the magic word?", 0)
     blockObject.setAnyProperty(FinalChoice1, AnyProp.NextPage, FinalChoice2)
-    blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Abracadabra!"])
+    blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Bazz off!!"])
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, happyEnding())
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice2, 0)
     return FinalChoice1
@@ -173,6 +174,14 @@ function createScript (characterName: string, text: string, portrait: number) {
     blockObject.setNumberProperty(newScript, NumProp.Portrait, portrait)
     return newScript
 }
+function BuzzOff () {
+    BuzzOff1 = createScript("Pineapple", "how rude feel my thunder", 1)
+    BuzzOff2 = createScript("Mr. Kao", "NOOOOOOO", 4)
+    blockObject.setAnyProperty(BuzzOff1, AnyProp.NextPage, BuzzOff2)
+    return BuzzOff1
+}
+let BuzzOff2: blockObject.BlockObject = null
+let BuzzOff1: blockObject.BlockObject = null
 let newScript: blockObject.BlockObject = null
 let NoMoneyForYou3: blockObject.BlockObject = null
 let NoMoneyForYou2: blockObject.BlockObject = null
